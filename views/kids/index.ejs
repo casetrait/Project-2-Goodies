@@ -1,3 +1,23 @@
 <%- include('../partials/header') %>
-    <h1><%= title %></h1>
+<h1><%= title %></h1>
+
+<table id="list">
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>Reward</th>
+        <th>Points<br>Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% kids.forEach(function(k) { %>
+        <tr>
+            <td><a href="/kids/<%= k._id %>"><%= k.childName %></a></td>
+            <td><% k.rewards ? k.rewards : k.rewards = "None Selected" %><%= k.rewards %></td>
+            <td><%= k.pointsBalance %></td>
+        </tr>
+        <% }); %>
+        </tbody>
+    </table>
+
 <%- include('../partials/footer') %>
