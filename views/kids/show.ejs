@@ -1,3 +1,7 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1>
+<h2><%= kid.childName %> is working towards 
+    <% kid.rewards.title ? kid.rewards.title : kid.rewards.title = "nothing, select reward" %>
+    <%= kid.rewards.title %></h2>
+
 <%- include('../partials/footer') %>

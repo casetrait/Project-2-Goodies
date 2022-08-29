@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1>
 
-<table id="list">
+<table id="kid-list">
     <thead>
         <tr>
         <th>Name</th>
@@ -13,11 +13,15 @@
         <% kids.forEach(function(k) { %>
         <tr>
             <td><a href="/kids/<%= k._id %>"><%= k.childName %></a></td>
-            <td><% k.rewards ? k.rewards : k.rewards = "None Selected" %><%= k.rewards %></td>
+            <td><% k.rewards.title ? k.rewards.title : k.rewards.title = "None Selected" %><%= k.rewards.title %></td>
             <td><%= k.pointsBalance %></td>
         </tr>
         <% }); %>
         </tbody>
     </table>
-
+<p>Add a New Child Name:</p>
+<form method = "POST" action = "/kids">
+    <input type="text" name="childName">
+    <button type="submit">Add</button>
+</form>
 <%- include('../partials/footer') %>
