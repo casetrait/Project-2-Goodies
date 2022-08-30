@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1>
-
+<p>Sorted from least to most points:</p>
 <table id="rewards-list">
     <thead>
         <tr>
@@ -19,11 +19,13 @@
         <% }); %>
         </tbody>
     </table>
-<p>Add a New Reward:</p>
-<form method = "POST" action = "/rewards">
-    <input type="text" name="title">
-    <input type="text" name="description">
-    <input type="number" name="points">
-    <button type="submit">Add</button>
-</form>
+<div class="new-form">
+    <p>Add a New Reward:</p>
+    <form method = "POST" action = "/rewards">
+        <small>Title:</small><input type="text" name="title"><br>
+        <small>Short Description:</small><input type="text" name="description"><br>
+        <small>Points Required:</small><input type="number" name="points"><br>
+        <button type="submit">Add</button>
+    </form>
+</div>
 <%- include('../partials/footer') %>

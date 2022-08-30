@@ -4,8 +4,21 @@
     <% kid.rewards.title ? kid.rewards.title : kid.rewards.title = "nothing, select reward" %>
     <%= kid.rewards.title %></h3>
     
-    <!-- reward list
+    <!-- reward list -->
+<form action="/kids/<% kid._id %>/rewards" method="POST">
+    <select name="rewardId">
+        <%- rewards.map(r => `<option value="${r._id}">${r.title}</option>`).join('') %>
+    </select>
+    <button type="submit">Add Reward to <%= kid.childName %>'s Page</button>
+</form>
 
-    task list -->
+    <!-- task list -->
+
+<form action="/kids/<% kid._id %>/tasks" method="POST">
+    <select name="taskId">
+        <%- tasks.map(t => `<option value="${t._id}">${t.title}</option>`).join('') %>
+    </select>
+    <button type="submit">Add Task to <%= kid.childName %>'s Page</button>
+</form>
 
 <%- include('../partials/footer') %>

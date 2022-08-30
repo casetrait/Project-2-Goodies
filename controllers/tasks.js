@@ -2,7 +2,7 @@ const Task = require('../models/task');
 
 module.exports = {
     index,
-    // create,
+    create,
 }
 
 function index(req, res) {
@@ -12,4 +12,10 @@ function index(req, res) {
         if (err) return next(err);
         res.render('tasks/index', { title: 'All Tasks', tasks });
     })
-  }
+}
+
+function create(req, res) {
+    Task.create(req.body, function(task) {
+        res.redirect('/tasks')
+    })
+}

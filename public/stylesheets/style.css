@@ -54,3 +54,16 @@ h2, li {
   width: 150px;
   height: 30px;
 }
+
+small {
+  padding-right: 20px;
+}
+
+.new-form {
+  text-align:left;
+  padding-left: 50px;
+}
+
+div input {
+  width:max-content;
+}

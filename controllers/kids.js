@@ -1,4 +1,6 @@
 const Kid = require('../models/kid')
+const Reward = require('../models/reward')
+const Task = require('../models/task')
 
 module.exports = {
     index,
@@ -17,14 +19,16 @@ function index(req, res) {
 
 function show(req, res) {
     Kid.findById(req.params.id, function(err, kid) {
-        res.render('kids/show', { title: kid.childName+"'s Page", kid})
-        console.log(kid.rewards.title)
+        Reward.find({},function(err, rewards) {
+            Task.find({},function(err, tasks) {
+                res.render('kids/show', { title: kid.childName+"'s Page", kid, rewards, tasks})
+            })
+        })
     })
 }
 
 function create(req, res) {
     Kid.create(req.body, function(kid) {
-        console.log(kid)
         res.redirect('/kids')
     })
 }
