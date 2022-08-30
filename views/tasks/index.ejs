@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+<h1><%= title %></h1>
+
+<table id="tasks-list">
+    <thead>
+        <tr>
+        <th>Task</th>
+        <th class = "description">Description</th>
+        <th>Points<br>Earned</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% tasks.forEach(function(t) { %>
+        <tr>
+            <td><%= t.title %></a></td>
+            <td class = "description"><% t.description %></td>
+            <td><%= t.points %></td>
+        </tr>
+        <% }); %>
+        </tbody>
+    </table>
+<p>Add a New Task:</p>
+<form method = "POST" action = "/tasks">
+    <input type="text" name="title">
+    <input type="text" name="description">
+    <input type="number" name="points">
+    <button type="submit">Add</button>
+</form>
+<%- include('../partials/footer') %>

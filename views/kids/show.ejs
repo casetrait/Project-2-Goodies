@@ -1,7 +1,11 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1>
-<h2><%= kid.childName %> is working towards 
+<h3><%= kid.childName %> is working towards 
     <% kid.rewards.title ? kid.rewards.title : kid.rewards.title = "nothing, select reward" %>
-    <%= kid.rewards.title %></h2>
+    <%= kid.rewards.title %></h3>
+    
+    <!-- reward list
+
+    task list -->
 
 <%- include('../partials/footer') %>

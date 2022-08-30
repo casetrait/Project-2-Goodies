@@ -7,8 +7,11 @@ module.exports = {
 }
 
 function index(req, res) {
-    Kid.find({}, function(err, kids) {
-      res.render('kids/index', { title: 'All Kids', kids });
+    let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
+    let sortKey = req.query.sort || 'childName';
+    Kid.find(modelQuery).sort(sortKey).exec(function(err, kids) {
+        if (err) return next(err);
+        res.render('kids/index', { title: 'All Kids', kids });
     })
   }
 

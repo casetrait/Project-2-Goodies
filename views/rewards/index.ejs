@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+<h1><%= title %></h1>
+
+<table id="rewards-list">
+    <thead>
+        <tr>
+        <th>Reward</th>
+        <th class = "description">Description</th>
+        <th>Points<br>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% rewards.forEach(function(r) { %>
+        <tr>
+            <td><%= r.title %></a></td>
+            <td class = "description"><% r.description %></td>
+            <td><%= r.points %></td>
+        </tr>
+        <% }); %>
+        </tbody>
+    </table>
+<p>Add a New Reward:</p>
+<form method = "POST" action = "/rewards">
+    <input type="text" name="title">
+    <input type="text" name="description">
+    <input type="number" name="points">
+    <button type="submit">Add</button>
+</form>
+<%- include('../partials/footer') %>
