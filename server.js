@@ -28,6 +28,7 @@ app.use(methodOverride('_method'))
 app.use('/', indexRouter);
 app.use('/kids', kidsRouter);
 app.use('/rewards', rewardsRouter);
+app.use('/', rewardsRouter);
 app.use('/tasks', tasksRouter);
 app.use('/', tasksRouter);
 
