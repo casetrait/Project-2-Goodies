@@ -22,7 +22,6 @@ function show(req, res) {
         Task.find({},function(err, tasks) {
             Reward.find({},function(err, rewards) {
                 res.render('kids/show', { title: kid.childName+"'s Page", kid, rewards, tasks})
-                console.log(kid)
             })
         })
     })

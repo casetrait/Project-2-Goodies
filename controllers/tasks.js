@@ -5,6 +5,7 @@ module.exports = {
     index,
     create,
     addToTasks,
+    delete: deleteTasks,
 }
 
 function index(req, res) {
@@ -29,4 +30,13 @@ function addToTasks(req, res) {
         res.redirect(`/kids/${req.params.kidId}`)
       })
     })
-  }
+}
+
+function deleteTasks(req, res) {
+    Kid.findById(req.params.kidId, function (err, kid) {
+      kid.tasks = []
+      kid.save(function(err) {
+        res.redirect(`/kids/${req.params.kidId}`)
+      })
+    })
+}

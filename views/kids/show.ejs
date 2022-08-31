@@ -10,7 +10,7 @@
     <select name="rewardId">
         <%- rewards.map(r => `<option value="${r._id}">${r.title}</option>`).join('') %>
     </select>
-    <button type="submit">Add Reward to <%= kid.childName %>'s Page</button>
+    <button type="submit">Update Reward to <%= kid.childName %>'s Page</button>
 </form>
 
     <!-- task select -->
@@ -31,7 +31,9 @@
         </tr>
     </thead>
     <tbody>
+    <% let totalTaskPts = 0 %>
     <% kid.tasks.forEach(function(t) { %>
+    <% totalTaskPts += t.points %>    
         <tr>
             <td><%= t.title %></a></td>
             <td class = "description"><%= t.description %></td>
@@ -40,7 +42,10 @@
         <% }); %>
         </tbody>
     </table>
-</ul>
-
+    <h3>Total Task Points Earned: <%= totalTaskPts %></h3>
+    <h3>Task Points Remaining Until Reward: <%= kid.rewards.points - totalTaskPts %></h3>
+<form method="POST" action="/kids/<%= kid._id %>/tasks?_method=DELETE">
+    <button type="submit">Clear All Tasks</button>
+</form>
 
 <%- include('../partials/footer') %>
