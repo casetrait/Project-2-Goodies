@@ -1,8 +1,10 @@
 const Task = require('../models/task');
+const Kid = require('../models/kid');
 
 module.exports = {
     index,
     create,
+    addToTasks,
 }
 
 function index(req, res) {
@@ -19,3 +21,12 @@ function create(req, res) {
         res.redirect('/tasks')
     })
 }
+
+function addToTasks(req, res) {
+    Kid.findById(req.params.kidId, function (err, kid) {
+      kid.tasks.push(req.body.taskId)
+      kid.save(function(err) {
+        res.redirect(`/kids/${req.params.kidId}`)
+      })
+    })
+  }

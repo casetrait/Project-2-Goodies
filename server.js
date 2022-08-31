@@ -27,6 +27,7 @@ app.use('/', indexRouter);
 app.use('/kids', kidsRouter);
 app.use('/rewards', rewardsRouter);
 app.use('/tasks', tasksRouter);
+app.use('/', tasksRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -18,10 +18,11 @@ function index(req, res) {
   }
 
 function show(req, res) {
-    Kid.findById(req.params.id, function(err, kid) {
-        Reward.find({},function(err, rewards) {
-            Task.find({},function(err, tasks) {
+    Kid.findById(req.params.id).populate('tasks').exec(function(err, kid) {
+        Task.find({},function(err, tasks) {
+            Reward.find({},function(err, rewards) {
                 res.render('kids/show', { title: kid.childName+"'s Page", kid, rewards, tasks})
+                console.log(kid)
             })
         })
     })

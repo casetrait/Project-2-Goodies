@@ -22,7 +22,7 @@ nav > img {
   margin-right: auto;
 }
 
-#kid-list, #rewards-list, #tasks-list {
+table {
   width: 350px;
   margin-left: auto;
   margin-right: auto;
@@ -66,4 +66,8 @@ small {
 
 div input {
   width:max-content;
+}
+
+#kid-task-list {
+  margin-top: 20px;
 }

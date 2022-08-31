@@ -3,22 +3,44 @@
 <h3><%= kid.childName %>'s next reward is:
     <% kid.rewards.title ? kid.rewards.title : kid.rewards.title = "not yet selected" %>
     <%= kid.rewards.title %></h3>
-    
-    <!-- reward list -->
-<form action="/kids/<% kid._id %>/rewards" method="POST">
+ <h3>Task Points required for reward: <% kid.rewards.points ? kid.rewards.points : kid.rewards.points = "0" %>
+    <%= kid.rewards.points %></h3>   
+    <!-- reward select -->
+<form action="/kids/<%= kid._id %>/rewards" method="POST">
     <select name="rewardId">
         <%- rewards.map(r => `<option value="${r._id}">${r.title}</option>`).join('') %>
     </select>
     <button type="submit">Add Reward to <%= kid.childName %>'s Page</button>
 </form>
 
-    <!-- task list -->
-
-<form action="/kids/<% kid._id %>/tasks" method="POST">
+    <!-- task select -->
+<form action="/kids/<%= kid._id %>/tasks" method="POST">
     <select name="taskId">
         <%- tasks.map(t => `<option value="${t._id}">${t.title}</option>`).join('') %>
     </select>
     <button type="submit">Add Task to <%= kid.childName %>'s Page</button>
 </form>
+
+   <!-- task list -->
+   <table id="kid-task-list">
+    <thead>
+        <tr>
+        <th>Tasks Completed</th>
+        <th class = "description">Description</th>
+        <th>Points<br>Earned</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% kid.tasks.forEach(function(t) { %>
+        <tr>
+            <td><%= t.title %></a></td>
+            <td class = "description"><%= t.description %></td>
+            <td><%= t.points %></td>
+        </tr>
+        <% }); %>
+        </tbody>
+    </table>
+</ul>
+
 
 <%- include('../partials/footer') %>
