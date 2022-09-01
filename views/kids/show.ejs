@@ -47,7 +47,12 @@
         </tbody>
     </table>
     <h3>Total Task Points Earned: <%= totalTaskPts %></h3>
-    <h3>Task Points Remaining Until Reward: <%= rewardPoints - totalTaskPts %></h3>
+    <%if (rewardPoints <= totalTaskPts ) {%>
+        <h3><%=kid.childName%> has earned their reward!!!</h3>
+        <img src="/images/claps.gif" width= 50px>
+    <% } else { %>
+        <h3>Task Points Remaining Until Reward: <%= rewardPoints - totalTaskPts %></h3>
+    <% } %>
 <form method="POST" action="/kids/<%= kid._id %>/tasks?_method=DELETE">
     <button type="submit">Clear All Tasks</button>
 </form>

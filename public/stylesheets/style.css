@@ -117,3 +117,7 @@ small {
 #kid-header {
   margin-bottom: -15px;
 }
+
+input {
+  width: 200px;
+}
