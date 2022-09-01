@@ -11,7 +11,7 @@ module.exports = {
 function index(req, res) {
     let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
     let sortKey = req.query.sort || 'childName';
-    Kid.find(modelQuery).sort(sortKey).exec(function(err, kids) {
+    Kid.find(modelQuery).populate('rewards').sort(sortKey).exec(function(err, kids) {
         if (err) return next(err);
         res.render('kids/index', { title: 'All Kids', kids });
     })
@@ -22,6 +22,7 @@ function show(req, res) {
         Task.find({},function(err, tasks) {
             Reward.find({},function(err, rewards) {
                 res.render('kids/show', { title: kid.childName+"'s Page", kid, rewards, tasks})
+                console.log(kid.rewards)
             })
         })
     })

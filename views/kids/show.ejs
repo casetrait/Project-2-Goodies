@@ -1,10 +1,13 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1>
-<h3><%= kid.childName %>'s next reward is:
-    <% kid.rewards[0].title ? kid.rewards[0].title : kid.rewards[0].title = "not yet selected" %>
-    <%= kid.rewards[0].title %></h3>
- <h3>Task Points required for reward: <% kid.rewards[0].points ? kid.rewards[0].points : kid.rewards[0].points = "0" %>
-    <%= kid.rewards[0].points %></h3>   
+<%let rewardPoints%>
+<%if(kid.rewards.length === 0) { %>
+    <%rewardPoints = 0%>
+    <h3>Please choose a reward for <%=kid.childName%></h3>
+<%}else{%>
+    <h3><%=kid.rewards[0].title%> requires <%=kid.rewards[0].points%> points</h3>
+    <%rewardPoints = kid.rewards[0].points%>
+<%}%>
     <!-- reward select -->
 <form method="POST" action="/kids/<%= kid._id %>/rewards?_method=PUT">
     <select name="rewardId">
@@ -12,7 +15,7 @@
     </select>
     <button type="submit">Update Reward for <%= kid.childName %></button>
 </form>
-
+<a href="/rewards">View and add rewards</a>
     <!-- task select -->
 <form action="/kids/<%= kid._id %>/tasks" method="POST">
     <select name="taskId">
@@ -20,7 +23,7 @@
     </select>
     <button type="submit">Add Task to <%= kid.childName %>'s Page</button>
 </form>
-
+<a href="/tasks">View and add tasks</a>
    <!-- task list -->
    <table id="kid-task-list">
     <thead>
@@ -43,7 +46,7 @@
         </tbody>
     </table>
     <h3>Total Task Points Earned: <%= totalTaskPts %></h3>
-    <h3>Task Points Remaining Until Reward: <%= kid.rewards[0].points - totalTaskPts %></h3>
+    <h3>Task Points Remaining Until Reward: <%= rewardPoints - totalTaskPts %></h3>
 <form method="POST" action="/kids/<%= kid._id %>/tasks?_method=DELETE">
     <button type="submit">Clear All Tasks</button>
 </form>

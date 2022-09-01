@@ -1,10 +1,10 @@
 exports.kids = [
-    {childName: 'Simon Strate', pointsBalance: 3},
-    {childName: 'Josephine Strate', pointsBalance: 1},
-    {childName: 'Kevin McCallister', pointsBalance: 0},
-    {childName: 'Charlie Bucket', pointsBalance: 5},
-    {childName: 'Alfalfa', pointsBalance: 0},
-    {childName: 'Spanky', pointsBalance: 5}
+    {childName: 'Simon'},
+    {childName: 'Josephine'},
+    {childName: 'Kevin'},
+    {childName: 'Charlie'},
+    {childName: 'Alfalfa'},
+    {childName: 'Spanky'}
 ]
 
 exports.rewards = [

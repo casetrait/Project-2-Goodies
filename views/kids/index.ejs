@@ -5,16 +5,21 @@
     <thead>
         <tr>
         <th>Name</th>
-        <th>Reward</th>
-        <th>Points<br>Balance</th>
+        <th>Reward Chosen</th>
+        <th>Points<br>Needed</th>
         </tr>
     </thead>
     <tbody>
         <% kids.forEach(function(k) { %>
         <tr>
             <td><a href="/kids/<%= k._id %>"><%= k.childName %></a></td>
-            <td><% k.rewards.title ? k.rewards.title : k.rewards.title = "None Selected" %><%= k.rewards.title %></td>
-            <td><%= k.pointsBalance %></td>
+            <% if(k.rewards.length === 0) { %>
+            <td>None Selected</td>
+            <td>TBD</td>
+            <% } else { %>
+            <td><%= k.rewards[0].title %></td>
+            <td><%=k.rewards[0].points%></td>
+            <% } %>
         </tr>
         <% }); %>
         </tbody>
