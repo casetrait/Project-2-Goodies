@@ -15,7 +15,7 @@
     </select>
     <button type="submit">Update Reward for <%= kid.childName %></button>
 </form>
-<a href="/rewards">View and add rewards</a>
+<a href="/rewards">View and add to reward list</a>
 <br><br>
     <!-- task select -->
 <form action="/kids/<%= kid._id %>/tasks" method="POST">
@@ -24,7 +24,7 @@
     </select>
     <button type="submit">Add Task to <%= kid.childName %>'s Page</button>
 </form>
-<a href="/tasks">View and add tasks</a>
+<a href="/tasks">View and add to task list</a>
    <!-- task list -->
    <table id="kid-task-list">
     <thead>
