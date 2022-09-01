@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1>
 <p>Sorted from least to most points:</p>
-<table id="rewards-list">
+<table class="list-table" id="rewards-list">
     <thead>
         <tr>
         <th>Reward</th>
@@ -20,12 +20,35 @@
         </tbody>
     </table>
 <div class="new-form">
-    <p>Add a New Reward:</p>
+    <p class="add-text">Add a New Reward:</p>
     <form method = "POST" action = "/rewards">
-        <small>Title:</small><input type="text" name="title"><br>
-        <small>Short Description:</small><input type="text" name="description"><br>
-        <small>Points Required:</small><input type="number" name="points"><br>
-        <button type="submit">Add</button>
+        <table>
+            <tr>
+                <td class="add-table">
+                    <small>Title:</small>
+                </td>
+                <td class="add-table">
+                    <input type="text" name="title">
+                </td>
+            </tr>
+            <tr>
+                <td class="add-table">
+                    <small>Short Description:</small>
+                </td>
+                <td class="add-table">
+                    <input type="text" name="description">
+                </td>
+            </tr>
+            <tr>
+                <td class="add-table">
+                    <small>Points Required:</small>
+                </td>
+                <td class="add-table">
+                    <input type="number" name="points">
+                </td>
+            </tr>
+        </table>
+        <button type="submit">Add Reward</button>
     </form>
 </div>
 <%- include('../partials/footer') %>

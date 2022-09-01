@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1>
 <p>In alphabetical order:</p>
-<table id="tasks-list">
+<table class="list-table" id="tasks-list">
     <thead>
         <tr>
         <th>Task</th>
@@ -20,12 +20,35 @@
         </tbody>
     </table>
 <div class="new-form">
-    <p>Add a New Task:</p>
+    <p class="add-text">Add a New Task:</p>
     <form method = "POST" action = "/tasks">
-        <small>Title:</small><input type="text" name="title"><br>
-        <small>Short Description:</small><input type="text" name="description"><br>
-        <small>Points Earned:</small><input type="number" name="points"><br>
-        <button type="submit">Add</button>
+        <table>
+            <tr>
+                <td class="add-table">
+                    <small>Title:</small>
+                </td>
+                <td class="add-table">
+                    <input type="text" name="title">
+                </td>
+            </tr>
+            <tr>
+                <td class="add-table">
+                    <small>Short Description:</small>
+                </td>
+                <td class="add-table">
+                    <input type="text" name="description">
+                </td>
+            </tr>
+            <tr>
+                <td class="add-table">
+                    <small>Points Earned:</small>
+                </td>
+                <td class="add-table">
+                    <input type="number" name="points">
+                </td>
+            </tr>
+        </table>
+        <button type="submit">Add Task</button>
     </form>
 </div>
 <%- include('../partials/footer') %>

@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1>
-<p>Select a kid below to navigate to their page:</p>
-<table id="kid-list">
+<p>Select a Name to navigate to your child's page:</p>
+<table class="list-table" id="kid-list">
     <thead>
         <tr>
         <th>Name</th>
@@ -24,9 +24,9 @@
         <% }); %>
         </tbody>
     </table>
-<p>Add a New Child Name:</p>
+<p class="add-text">Add a New Child:</p>
 <form method = "POST" action = "/kids">
     <input type="text" name="childName">
-    <button type="submit">Add</button>
+    <button type="submit">Add Name</button>
 </form>
 <%- include('../partials/footer') %>
