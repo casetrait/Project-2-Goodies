@@ -1,3 +1,4 @@
+require('dotenv').config()
 require('./config/database');// connect this script to the database
 const Kid = require('./models/kid');
 const Reward = require('./models/reward');
