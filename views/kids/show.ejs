@@ -5,7 +5,7 @@
     <%rewardPoints = 0%>
     <h3>Please choose a reward for <%=kid.childName%></h3>
 <%}else{%>
-    <h3><%=kid.rewards[0].title%> requires <%=kid.rewards[0].points%> <img src="/images/g-buck.png" width= 30px></h3>
+    <h3><%=kid.rewards[0].title%> requires <%=kid.rewards[0].points%> <img src="/images/g-buck.png" width= 40px></h3>
     <%rewardPoints = kid.rewards[0].points%>
 <%}%>
     <!-- reward select -->
@@ -31,7 +31,7 @@
         <tr>
         <th>Tasks Completed</th>
         <th class = "description">Description</th>
-        <th><img src="/images/g-buck.png" width= 35px></th>
+        <th><img src="/images/g-buck.png" width= 40px></th>
         </tr>
     </thead>
     <tbody>
@@ -46,12 +46,12 @@
         <% }); %>
         </tbody>
     </table>
-    <h3>Total Task Points Earned: <%= totalTaskPts %></h3>
+    <h3>Total Goody Bucks Earned: <%= totalTaskPts %></h3>
     <%if (rewardPoints <= totalTaskPts && totalTaskPts !== 0) {%>
         <h3><%=kid.childName%> has earned their reward!!!</h3>
         <img ID="claps" src="/images/claps.gif" width= 80px>
     <% } else { %>
-        <h3>Task Points Remaining Until Reward: <%= rewardPoints - totalTaskPts %></h3>
+        <h3>Goody Bucks Until Reward: <%= rewardPoints - totalTaskPts %></h3>
     <% } %>
 <form method="POST" action="/kids/<%= kid._id %>/tasks?_method=DELETE">
     <button type="submit">Clear All Tasks</button>
