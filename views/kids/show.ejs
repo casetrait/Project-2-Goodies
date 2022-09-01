@@ -1,11 +1,11 @@
 <%- include('../partials/header') %>
-<h1><%= title %></h1>
+<h1 ID="kid-header"><%= title %></h1>
 <%let rewardPoints%>
 <%if(kid.rewards.length === 0) { %>
     <%rewardPoints = 0%>
     <h3>Please choose a reward for <%=kid.childName%></h3>
 <%}else{%>
-    <h3><%=kid.rewards[0].title%> requires <%=kid.rewards[0].points%> points</h3>
+    <h3><%=kid.rewards[0].title%> requires <%=kid.rewards[0].points%> <img src="/images/g-buck.png" width= 30px></h3>
     <%rewardPoints = kid.rewards[0].points%>
 <%}%>
     <!-- reward select -->
@@ -16,6 +16,7 @@
     <button type="submit">Update Reward for <%= kid.childName %></button>
 </form>
 <a href="/rewards">View and add rewards</a>
+<br><br>
     <!-- task select -->
 <form action="/kids/<%= kid._id %>/tasks" method="POST">
     <select name="taskId">
@@ -30,7 +31,7 @@
         <tr>
         <th>Tasks Completed</th>
         <th class = "description">Description</th>
-        <th>Goody<br>Coin<br>Earned</th>
+        <th><img src="/images/g-buck.png" width= 35px></th>
         </tr>
     </thead>
     <tbody>

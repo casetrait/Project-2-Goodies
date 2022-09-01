@@ -32,11 +32,11 @@ li {
 table {
   margin-left: auto;
   margin-right: auto;
+  border-collapse: collapse;
 }
 
 .list-table {
   width: 350px;
-  border-collapse: collapse;
   border: 1px solid black;
 }
 
@@ -54,14 +54,14 @@ th, td {
   text-align: right;
 }
 
-th, button, input {
+th, button, input, select {
   font-size: 15px;
   background-color: #9c50f870;
   border: 1px solid black;
   margin: 5px 0px;
 }
 
-input {
+input, select {
   background-color: #9c50f817;
 }
 
@@ -106,11 +106,14 @@ small {
   text-align: center;
 }
 
-
 #kid-task-list {
   margin-top: 20px;
 }
 
 #home-image {
   margin-top: -20px;
+}
+
+#kid-header {
+  margin-bottom: -15px;
 }
