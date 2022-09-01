@@ -47,9 +47,9 @@
         </tbody>
     </table>
     <h3>Total Task Points Earned: <%= totalTaskPts %></h3>
-    <%if (rewardPoints <= totalTaskPts ) {%>
+    <%if (rewardPoints <= totalTaskPts && totalTaskPts !== 0) {%>
         <h3><%=kid.childName%> has earned their reward!!!</h3>
-        <img src="/images/claps.gif" width= 50px>
+        <img ID="claps" src="/images/claps.gif" width= 80px>
     <% } else { %>
         <h3>Task Points Remaining Until Reward: <%= rewardPoints - totalTaskPts %></h3>
     <% } %>

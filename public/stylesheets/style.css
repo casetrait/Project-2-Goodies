@@ -121,3 +121,7 @@ small {
 input {
   width: 200px;
 }
+
+#claps {
+  margin-top: -10px;
+}
