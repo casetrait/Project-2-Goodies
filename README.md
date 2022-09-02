@@ -44,7 +44,8 @@ The Child Summary Page is the heart of the app. Here you can update your child's
 ## Next Steps
 ---
 
-1. Add parent OAuth to have child pages linked to their account and private
+1. Error Handling - front end
+2. Add parent OAuth to have child pages linked to their account and private
 2. Add more points data to main index page
 3. Add dates to task log
 3. Add ability to link reward websites or images

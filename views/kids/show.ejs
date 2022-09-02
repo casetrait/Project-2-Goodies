@@ -26,33 +26,33 @@
 </form>
 <a href="/tasks">View and add to task list</a>
    <!-- task list -->
-   <table id="kid-task-list">
-    <thead>
-        <tr>
-        <th>Tasks Completed</th>
-        <th class = "description">Description</th>
-        <th><img src="/images/g-buck.png" width= 40px></th>
-        </tr>
-    </thead>
-    <tbody>
-    <% let totalTaskPts = 0 %>
-    <% kid.tasks.forEach(function(t) { %>
-    <% totalTaskPts += t.points %>    
-        <tr>
-            <td><%= t.title %></a></td>
-            <td class = "description"><%= t.description %></td>
-            <td><%= t.points %></td>
-        </tr>
-        <% }); %>
-        </tbody>
-    </table>
-    <h3>Total Goody Bucks Earned: <%= totalTaskPts %></h3>
-    <%if (rewardPoints <= totalTaskPts && totalTaskPts !== 0) {%>
-        <h3><%=kid.childName%> has earned their reward!!!</h3>
-        <img ID="claps" src="/images/claps.gif" width= 80px>
-    <% } else { %>
-        <h3>Goody Bucks Until Reward: <%= rewardPoints - totalTaskPts %></h3>
-    <% } %>
+<table id="kid-task-list">
+<thead>
+    <tr>
+    <th>Tasks Completed</th>
+    <th class = "description">Description</th>
+    <th><img src="/images/g-buck.png" width= 40px></th>
+    </tr>
+</thead>
+<tbody>
+<% let totalTaskPts = 0 %>
+<% kid.tasks.forEach(function(t) { %>
+<% totalTaskPts += t.points %>    
+    <tr>
+        <td><%= t.title %></a></td>
+        <td class = "description"><%= t.description %></td>
+        <td><%= t.points %></td>
+    </tr>
+    <% }); %>
+    </tbody>
+</table>
+<h3>Total Goody Bucks Earned: <%= totalTaskPts %></h3>
+<%if (rewardPoints <= totalTaskPts && totalTaskPts !== 0) {%>
+    <h3><%=kid.childName%> has earned their reward!!!</h3>
+    <img ID="claps" src="/images/claps.gif" width= 80px>
+<% } else { %>
+    <h3>Goody Bucks Until Reward: <%= rewardPoints - totalTaskPts %></h3>
+<% } %>
 <form method="POST" action="/kids/<%= kid._id %>/tasks?_method=DELETE">
     <button type="submit">Clear All Tasks</button>
 </form>
